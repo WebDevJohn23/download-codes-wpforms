@@ -29,7 +29,7 @@ function getUploadFile() {
 
         if (in_array($fileExtension, $allowedfileExtensions)) {
             $uploadFileDir = wp_upload_dir()['path'] . '/';
-            $dest_path = $uploadFileDir . md5(time() . $fileName) . '.' . $fileExtension;
+            $dest_path = $uploadFileDir . md5(functions . phptime() . $fileName) . '.' . $fileExtension;
 
             if (move_uploaded_file($fileTmpPath, $dest_path)) {
                 $file = fopen($dest_path, "r");
